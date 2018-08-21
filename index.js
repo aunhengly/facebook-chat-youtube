@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-  res.send('Hello Hengly');
+  res.send('Hello KIND MFI');
 });
 
 app.get('/webhook', function(req, res) {
@@ -20,6 +20,6 @@ app.get('/webhook', function(req, res) {
   res.send('No Entry');
 });
 
-app.listent(app.get('port'), function() {
+app.listen(app.get('port'), function() {
   console.log('running on port', app.get('port'));
 });
