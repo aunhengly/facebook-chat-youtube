@@ -4,8 +4,8 @@ const request = require('request');
 
 const app = express();
 
-const token = process.env.FB_VERIFY_TOKEN;
-const access = process.env.FB_VERIFY_TOKEN;
+const VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN;
+const PAGE_ACCESS_TOKEN = process.env.FB_ACCESS_TOKEN;
 
 app.set('port', process.env.PORT || 5000);
 
@@ -17,7 +17,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/webhook', function(req, res) {
-  if (req.query['hub.verify_token'] === token) {
+  if (req.query['hub.verify_token'] === VERIFY_TOKEN) {
     res.send(req.query['hub.challenge']);
   }
   res.send('No Entry');
